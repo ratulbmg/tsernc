@@ -15,6 +15,7 @@ yarn workspace @repo/db db-reset
   "password": "password"
 }
 
+
 // need to check husky
 // need to check why yarn run husky is not working when yarn install trigger
 // need to check while commit why lint not stopping the commit
