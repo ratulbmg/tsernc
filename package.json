@@ -1,0 +1,38 @@
+{
+  "name": "tsernc",
+  "// packageManager": "Here we define the package manager name and version which will be used in the project",
+  "packageManager": "yarn@4.11.0",
+  "// workspaces": "This field define a monorepo structure multiple package/apps in one repository that share dependencies",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky",
+    "db:start": "docker compose up -d",
+    "db:stop": "docker compose down",
+    "db:logs": "docker compose logs -f",
+    "db:restart": "docker compose restart"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint"
+    ]
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.2.5",
+    "tsx": "^4.21.0",
+    "turbo": "^2.9.7",
+    "typescript": "^5.9.3"
+  }
+}
