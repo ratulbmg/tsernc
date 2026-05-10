@@ -9,17 +9,11 @@ yarn workspace @repo/db db-migrate --name "initial"
 yarn workspace @repo/db db-seed
 yarn workspace @repo/db db-reset
 
-
 {
   "email": "test@email.com",
   "password": "password"
 }
 
-
-// need to check husky
-// need to check why yarn run husky is not working when yarn install trigger
-// need to check while commit why lint not stopping the commit
-// need to check docker file also.
 
 turbo.json
 
