@@ -10,7 +10,7 @@ const app = Express();
 app.use(corsMiddleware);
 app.use(requestLogger);
 if (env.API_DOC_VISIBLE) {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 app.use(Express.json());
 

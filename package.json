@@ -27,7 +27,7 @@
       "eslint"
     ],
     "*.{ts,tsx,md}": [
-      "prettier"
+      "prettier --check"
     ]
   },
   "devDependencies": {
