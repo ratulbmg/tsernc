@@ -1,5 +1,5 @@
 {
   "extends": "@repo/typescript-config/ui.json",
-  "include": ["components", "utils", "index.ts",],
+  "include": ["components", "utils", "index.ts"],
   "exclude": ["node_modules", "dist"]
 }
