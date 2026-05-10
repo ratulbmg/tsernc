@@ -6,6 +6,6 @@ import { Pool } from "pg";
 const pool = new Pool({ connectionString: env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
 
-export const prisma = new PrismaClient( {adapter} );
+export const prisma = new PrismaClient({ adapter });
 
 export * from "../generated/prisma/client";
