@@ -1,6 +1,10 @@
-import { Prisma } from '@repo/db/client'
+import { Prisma } from "@repo/db/client";
 
-type RepositoryModel<T, CreateData = Prisma.InputJsonValue, UpdateData = CreateData> = {
+type RepositoryModel<
+  T,
+  CreateData = Prisma.InputJsonValue,
+  UpdateData = CreateData,
+> = {
   findMany(): Promise<T[]>;
   findUnique(args: { where: { id: number } }): Promise<T | null>;
   create(args: { data: CreateData }): Promise<T>;
@@ -8,7 +12,11 @@ type RepositoryModel<T, CreateData = Prisma.InputJsonValue, UpdateData = CreateD
   delete(args: { where: { id: number } }): Promise<T>;
 };
 
-export class BaseRepository<T, CreateData = Prisma.InputJsonValue, UpdateData = CreateData> {
+export class BaseRepository<
+  T,
+  CreateData = Prisma.InputJsonValue,
+  UpdateData = CreateData,
+> {
   protected model: RepositoryModel<T, CreateData, UpdateData>;
 
   constructor(model: RepositoryModel<T, CreateData, UpdateData>) {

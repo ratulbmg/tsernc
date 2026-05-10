@@ -10,7 +10,7 @@
     "build": "tsc -p .",
     "start": "node ../../dist/api/index.js",
     "dev": "nodemon",
-    "lint": "eslint . --ext .ts,.js"
+    "lint": "eslint src --ext .ts"
   },
   "dependencies": {
     "@repo/db": "*",
