@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import config from '../../config/config';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import config from "../../config/config";
 
 /**
  * Base API configuration
@@ -7,22 +7,20 @@ import config from '../../config/config';
  * Feature APIs can extend this using injectEndpoints()
  */
 export const baseApi = createApi({
-    reducerPath: 'api',
-    baseQuery: fetchBaseQuery({
-        baseUrl: config.apiendpointurl,
-        prepareHeaders: (headers) => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                headers.set('authorization', `Bearer ${token}`);
-            }
-            headers.set('Content-Type', 'application/json');
-            return headers;
-        },
-    }),
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({
+    baseUrl: config.apiendpointurl,
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
+      headers.set("Content-Type", "application/json");
+      return headers;
+    },
+  }),
 
-    tagTypes: [
-        'User',
-    ],
+  tagTypes: ["User"],
 
-    endpoints: () => ({}),
+  endpoints: () => ({}),
 });

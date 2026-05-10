@@ -1,13 +1,13 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { isAuthenticated } from '../helper/authHelpers';
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { isAuthenticated } from "../helper/authHelpers";
 
 const ProtectedRoute: React.FC = () => {
-    if (!isAuthenticated()) {
-        return <Navigate to="/" replace />;
-    }
+  if (!isAuthenticated()) {
+    return <Navigate to="/" replace />;
+  }
 
-    return <Outlet />;
+  return <Outlet />;
 };
 
 export default ProtectedRoute;
