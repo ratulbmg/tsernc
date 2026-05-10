@@ -63,7 +63,6 @@ function setupPrismaLogging(client: PrismaClient): void {
   });
 }
 
-
 /**
  * prisma
  * - Use the DB package's exported Prisma instance (`dbPrisma`) by default.
