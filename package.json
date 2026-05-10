@@ -25,6 +25,9 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "eslint"
+    ],
+    "*.{ts,tsx,md}": [
+      "prettier"
     ]
   },
   "devDependencies": {
