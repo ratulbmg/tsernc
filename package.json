@@ -17,9 +17,9 @@
     "lint:fix": "turbo run lint -- --fix",
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
     "format:fix": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:generate": "docker compose -f docker-compose.dev.yml exec api yarn workspace @repo/db db-generate",
     "db:migrate": "docker compose -f docker-compose.dev.yml exec api yarn workspace @repo/db db-migrate",
     "db:seed": "docker compose -f docker-compose.dev.yml exec api yarn workspace @repo/db db-seed",
-    "db:generate": "docker compose -f docker-compose.dev.yml exec api yarn workspace @repo/db db-generate",
     "db:reset": "docker compose -f docker-compose.dev.yml exec api yarn workspace @repo/db db-reset",
     "docker:dev:up": "docker compose -f docker-compose.dev.yml up -d",
     "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
@@ -36,7 +36,6 @@
     ]
   },
   "devDependencies": {
-    "dotenv": "^17.2.3",
     "eslint": "^8.57.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",

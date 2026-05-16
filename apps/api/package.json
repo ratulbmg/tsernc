@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@repo/db": "*",
-    "@repo/env": "*",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "4.21.2",
     "jsonwebtoken": "9.0.2",
     "passport": "0.7.0",

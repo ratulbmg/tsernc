@@ -1,4 +1,3 @@
-import { env } from "@repo/env";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
@@ -12,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${env.API_PORT}`,
+        url: `http://localhost:${process.env.API_PORT}`,
         description: "Local development server",
       },
     ],

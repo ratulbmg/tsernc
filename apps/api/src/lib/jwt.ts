@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { env } from "@repo/env";
 import { apiError } from "../utils/apiError";
 import logger from "../config/logger.config";
 
@@ -12,7 +11,9 @@ export const createToken = async (
   data: JWTPayload,
   validity = "1h",
 ): Promise<string> => {
-  const token = jwt.sign(data, env.API_JWT_SECRET, { expiresIn: validity });
+  const token = jwt.sign(data, String(process.env.API_JWT_SECRET), {
+    expiresIn: validity,
+  });
   return token;
 };
 
@@ -20,7 +21,10 @@ export const verifyToken = async (token: string): Promise<JWTPayload> => {
   try {
     // clean the token (removing the Bearer prefix)
     token = token.startsWith("Bearer ") ? token.slice(7) : token;
-    const decoded = jwt.verify(token, env.API_JWT_SECRET) as JWTPayload;
+    const decoded = jwt.verify(
+      token,
+      String(process.env.API_JWT_SECRET),
+    ) as JWTPayload;
     if (!decoded.uniqueId) {
       logger.warn("No authenticated user in token");
       throw new apiError("Authentication required", 401);

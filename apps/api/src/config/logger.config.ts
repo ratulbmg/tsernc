@@ -1,6 +1,5 @@
 import winston from "winston";
 import path from "path";
-import { env } from "@repo/env";
 
 // Define log levels
 const levels = {
@@ -25,7 +24,7 @@ winston.addColors(colors);
 
 // Define which level to log based on environment
 const level = () => {
-  return env.API_NODE_ENV === "development" ? "debug" : "info";
+  return process.env.API_NODE_ENV === "development" ? "debug" : "info";
 };
 
 // Define format for logs

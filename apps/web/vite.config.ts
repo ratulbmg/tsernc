@@ -6,10 +6,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     host: "0.0.0.0",
-    port: 5173,
+    port: Number(process.env.VITE_DEV_PORT),
     watch: {
       usePolling: true,
     },
   },
-  envDir: "../..", // <── tells Vite to look at the monorepo root for .env
 });

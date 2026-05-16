@@ -1,8 +1,7 @@
-import { env } from "@repo/env";
 import cors, { CorsOptions } from "cors";
 
 const allowedOrigins = [
-  `http://127.0.0.1:${env.API_PORT}`, // 127.0.0.1 => localhost
+  `http://127.0.0.1:${process.env.API_PORT}`, // 127.0.0.1 => localhost
   "http://127.0.0.1:5173",
   // Add your production frontend URLs here
 ];
@@ -46,6 +45,8 @@ const devCorsOptions: CorsOptions = {
 };
 
 export const corsMiddleware =
-  env.API_NODE_ENV === "production" ? cors(corsOptions) : cors(devCorsOptions);
+  process.env.API_NODE_ENV === "production"
+    ? cors(corsOptions)
+    : cors(devCorsOptions);
 
 export default corsMiddleware;

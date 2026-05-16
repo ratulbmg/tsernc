@@ -12,7 +12,6 @@ COPY apps/api/package.json         ./apps/api/
 COPY apps/web/package.json         ./apps/web/
 COPY packages/db/package.json      ./packages/db/
 COPY packages/ui/package.json      ./packages/ui/
-COPY packages/env/package.json     ./packages/env/
 COPY packages/eslint-config/       ./packages/eslint-config/
 COPY packages/prettier-config/     ./packages/prettier-config/
 COPY packages/typescript-config/   ./packages/typescript-config/

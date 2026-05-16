@@ -1,4 +1,6 @@
-import { env } from "@repo/env";
+import dotenv from "dotenv";
+dotenv.config();
+
 import routes from "./routes";
 import Express from "express";
 import errorHandler from "./middleware/errorMiddleware";
@@ -9,7 +11,7 @@ import { swaggerUi, swaggerSpec } from "./config/swagger.config";
 const app = Express();
 app.use(corsMiddleware);
 app.use(requestLogger);
-if (env.API_DOC_VISIBLE) {
+if (process.env.API_DOC_VISIBLE) {
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 app.use(Express.json());

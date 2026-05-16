@@ -1,14 +1,13 @@
-import { env } from "@repo/env";
 import app from "./app";
 import logger from "./config/logger.config";
 
-app.listen(env.API_PORT, () => {
+app.listen(process.env.API_PORT, () => {
   logger.info(
-    `Server started successfully => http://localhost:${env.API_PORT}/`,
+    `Server started successfully => http://localhost:${process.env.API_PORT}/`,
     {
-      port: env.API_PORT,
-      environment: env.API_NODE_ENV,
-      url: `http://localhost:${env.API_PORT}`,
+      port: process.env.API_PORT,
+      environment: process.env.API_NODE_ENV,
+      url: `http://localhost:${process.env.API_PORT}`,
     },
   );
 });
