@@ -10,10 +10,9 @@ yarn workspace @repo/db db-seed
 yarn workspace @repo/db db-reset
 
 {
-  "email": "test@email.com",
-  "password": "password"
+"email": "test@email.com",
+"password": "password"
 }
-
 
 turbo.json
 
@@ -23,7 +22,7 @@ turbo.json
 //persistent => Keep running (doesn't exit) - for watch mode/servers
 //build => Build will compiles Typescript to JavaScript
 //dependsOn => "^build" means first build all dependencies (packages) befour building apps
-//inputs => input files to watch for cache invalidation. If $TURBO_DEFAULT$ (src, package.json, etc.), .env file change then it build again else it use cache for avoit unnecessary build 
+//inputs => input files to watch for cache invalidation. If $TURBO_DEFAULT$ (src, package.json, etc.), .env file change then it build again else it use cache for avoit unnecessary build
 //start => Start runs production servers
 //dependsOn => "build" means first build all dependencies (packages) befour building apps
 //persistent => Keep running (server stays alive)

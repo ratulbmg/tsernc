@@ -11,4 +11,5 @@ export default defineConfig({
       usePolling: true,
     },
   },
+  envDir: "../..", // <── tells Vite to look at the monorepo root for .env
 });

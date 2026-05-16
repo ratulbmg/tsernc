@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "turbo run lint"
+      "eslint"
     ],
     "*.{ts,tsx,md}": [
       "prettier --check"

@@ -98,6 +98,7 @@ services:
       - "5173:5173"
     environment:
       - NODE_ENV=development
+      - VITE_API_ENDPOINT_URL=http://localhost:3001
       - CHOKIDAR_USEPOLLING=1
       - WATCHPACK_POLLING=true
     volumes:
