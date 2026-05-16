@@ -1,0 +1,14 @@
+.git
+.gitignore
+node_modules
+.turbo
+dist
+dist-ssr
+build
+.next
+*.log
+.env*.local
+.husky/_
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
