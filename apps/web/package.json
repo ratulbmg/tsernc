@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@repo/ui": "*",
+    "vite": "^5.1.4",
     "framer-motion": "^12.23.22",
     "gsap": "^3.13.0",
     "jwt-decode": "^4.0.0",
@@ -32,7 +33,6 @@
     "@vitejs/plugin-react": "^5.0.4",
     "globals": "^16.4.0",
     "tailwindcss": "^4.1.17",
-    "typescript": "^5.9.3",
-    "vite": "^5.1.4"
+    "typescript": "^5.9.3"
   }
 }
