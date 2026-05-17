@@ -53,7 +53,7 @@ services:
     container_name: tsernc-api
     build:
       context: .
-      dockerfile: docker/Dockerfile.api
+      dockerfile: docker/Dockerfile.api.dev
     command: yarn workspace api dev
     ports:
       - "${API_PORT:-3001}:${API_PORT:-3001}"
@@ -92,7 +92,7 @@ services:
     container_name: tsernc-web
     build:
       context: .
-      dockerfile: docker/Dockerfile.web
+      dockerfile: docker/Dockerfile.web.dev
     command: yarn workspace web dev
     ports:
       - "${VITE_WEB_PORT:-5173}:${VITE_WEB_PORT:-5173}"
