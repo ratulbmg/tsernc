@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
+    "typescript": "^5.9.3",
     "@types/cors": "^2.8.19",
     "@types/express": "5.0.0",
     "@types/jsonwebtoken": "9.0.7",
