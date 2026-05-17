@@ -14,7 +14,7 @@ COPY packages/prettier-config/      ./packages/prettier-config/
 COPY packages/typescript-config/    ./packages/typescript-config/
 
 # Install ALL dependencies
-RUN yarn install --immutable && yarn cache clean
+RUN yarn install && yarn cache clean
 
 # Copy source code
 COPY apps/web/                      ./apps/web/
@@ -34,6 +34,9 @@ RUN corepack enable && corepack prepare yarn@4.11.0 --activate
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY apps/web/package.json          ./apps/web/
 COPY packages/ui/package.json       ./packages/ui/
+COPY packages/eslint-config/        ./packages/eslint-config/
+COPY packages/prettier-config/      ./packages/prettier-config/
+COPY packages/typescript-config/    ./packages/typescript-config/
 
 # Install only production dependencies
 RUN yarn install && yarn cache clean
