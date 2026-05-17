@@ -44,7 +44,7 @@ COPY packages/prettier-config/      ./packages/prettier-config/
 COPY packages/typescript-config/    ./packages/typescript-config/
 
 # Install ONLY production dependencies
-RUN yarn install --immutable --production && yarn cache clean
+RUN yarn install --immutable && yarn cache clean
 
 # Copy built artifacts from builder stage
 COPY --from=builder /app/apps/api/dist        ./apps/api/dist/
