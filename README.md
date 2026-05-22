@@ -15,8 +15,6 @@ yarn workspace @repo/db db-reset
 }
 
 turbo.json
-sk-3380c3fbf1544a1c8f9b1fe65631f49f
-8725154938:AAFe2TtpB2aRNUcHqLNUZbZdKGfUtLpCkus
 
 //tash => Tasks define what commands turbo can run (build, dev, lint, start and etc..)
 //dev => Dev runs development servers
