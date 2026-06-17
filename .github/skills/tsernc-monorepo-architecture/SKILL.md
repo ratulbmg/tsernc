@@ -1,29 +1,42 @@
 ---
-name: tsernc-monorepo-architecture
-description: "Full-stack monorepo skill for React, Node.js/Express, and Next.js development using Turborepo + Yarn 4. Use when building API backends, React/Vite frontends, Next.js SSR apps, shared packages, Prisma DB layer, Docker environments. NOT for simple HTML/CSS/JS static sites or vanilla JS projects."
+name: fullstack-monorepo-architecture
+description: "Full-stack monorepo skill for React, Node.js/Express, and Next.js development using Turborepo + Yarn 4. Use when building new projects from scratch, restructuring vibe-coded projects, or building API backends, React/Vite frontends, Next.js SSR apps, shared packages, Prisma DB layer, Docker environments. NOT for simple HTML/CSS/JS static sites or vanilla JS projects."
 ---
 
-# TserNC Monorepo Architecture
+# Full-Stack Monorepo Architecture
 
-Full-stack monorepo skill for **React**, **Node.js/Express**, and **Next.js** projects using Turborepo, Yarn 4 workspaces, Prisma, Docker, and TypeScript.
+A comprehensive reference for building and restructuring full-stack monorepo projects using **React**, **Node.js/Express**, **Next.js**, Turborepo, Yarn 4 workspaces, Prisma, Docker, and TypeScript.
 
 ## When to Use
 
-Use this skill when developing or scaffolding code in the TserNC monorepo for:
+Use this skill in the following scenarios:
 
-- **React (Vite)** frontend applications
-- **Node.js / Express** API backends
-- **Next.js** applications (SSR/SSG variant)
-- Shared **TypeScript packages** (`@repo/db`, `@repo/ui`, `@repo/env`, etc.)
-- **Prisma ORM** database layer
-- **Docker** development or production environments
-- Adding new apps or packages to the monorepo
+### Build a New Project From Scratch
+Scaffold a new full-stack monorepo with proper structure from day one. Use the patterns here to set up:
+- **React (Vite)** or **Next.js** frontend
+- **Node.js / Express** API backend
+- Shared **TypeScript packages** (database, UI, env, configs)
+- **Prisma ORM** + PostgreSQL database layer
+- **Docker** development & production environments
+
+### Restructure a Vibe-Coded Project
+Take an existing project that was quickly built (vibe-coded) without proper architecture and restructure it into a clean, maintainable monorepo:
+- Split a monolithic codebase into `apps/` and `packages/`
+- Add proper layered architecture (Controller → Service → Repository)
+- Introduce shared packages for DRY code
+- Set up Turborepo task orchestration
+- Add Docker, testing, and linting
+
+### Day-to-Day Development
+- Adding new features to existing monorepo apps
+- Creating new shared packages
+- Managing database migrations
+- Running Docker environments
 
 **Do NOT use** for:
-
 - Simple HTML/CSS/JS static websites
 - Vanilla JavaScript projects without a framework
-- Projects outside the TserNC monorepo structure
+- Single-app projects (non-monorepo)
 
 ## Procedure
 
@@ -112,8 +125,29 @@ mkdir -p apps/my-app/src
 
 See [scaffolding.md](./references/scaffolding.md) for full template and checklist.
 
-### 7. Run Tests
+### 7. Restructure a Vibe-Coded Project
 
-Tests are co-located in `__tests__/` directories using Vitest, with E2E tests in `tests/` using Playwright.
+If you have an existing project built quickly without proper structure, follow this process to migrate it into the monorepo architecture:
+
+```bash
+# 1. Create the monorepo skeleton
+mkdir -p apps/api/src apps/web/src packages/
+# Create root package.json, turbo.json, tsconfig
+```
+
+**Migration steps:**
+
+1. **Analyze** the existing codebase — identify API code, frontend code, shared utilities
+2. **Move API code** into `apps/api/src/` following Controller → Service → Repository layers
+3. **Move frontend code** into `apps/web/src/` following pages/components/redux pattern
+4. **Extract shared code** (types, utils, DB models) into `packages/*`
+5. **Add missing configs** — tsconfig, ESLint, Prettier, Docker, CI
+6. **Incrementally adopt** — you don't need to move everything at once; migrate piece by piece
+
+See [scaffolding.md](./references/scaffolding.md) for template files, and [docker-setup.md](./references/docker-setup.md) for Docker setup.
+
+### 8. Run Tests
+
+Tests are co-located in `__tests__/` directories using Vitest, with E2E tests using Playwright.
 
 See [testing.md](./references/testing.md) for test configuration and best practices.
