@@ -13,7 +13,7 @@ Use this skill in the following scenarios:
 
 ### Build a New Project From Scratch
 Scaffold a new full-stack monorepo with proper structure from day one. Use the patterns here to set up:
-- **React (Vite)** or **Next.js** frontend
+- **React (Vite)** or **Next.js** frontend (SSR/SSG for SEO)
 - **Node.js / Express** API backend
 - Shared **TypeScript packages** (database, UI, env, configs)
 - **Prisma ORM** + PostgreSQL database layer
@@ -79,7 +79,21 @@ Frontend is at `apps/web/` — React 19 + Vite + Tailwind CSS 4 + Redux Toolkit.
 
 See [web-frontend.md](./references/web-frontend.md) for full frontend conventions.
 
-### 4. Use or Modify Shared Packages
+### 4. Optimize for SEO (Next.js)
+
+When building public-facing websites, use **Next.js** (not Vite React) for server-side rendering and SEO:
+
+- **Metadata API** — Set per-page titles, descriptions, and Open Graph tags via metadata exports in `layout.tsx` or `page.tsx`
+- **Semantic HTML** — Use proper `<h1>`–`<h6>`, `<article>`, `<section>`, `<nav>` landmarks
+- **SSR / SSG / ISR** — Server Components for dynamic content, static generation for blogs/pages, ISR for frequently updated content
+- **Structured Data** — Add JSON-LD schema markup (BreadcrumbList, Article, Product, FAQ, etc.)
+- **Sitemap & Robots** — Auto-generate `sitemap.xml` and `robots.txt` via Next.js config
+- **Core Web Vitals** — Optimize LCP (images, fonts), INP (interactivity), CLS (layout shifts) using Next.js Image, font optimization, and caching
+- **SEO audit checklist** — Verify lighthouse scores, meta tags, canonical URLs, and mobile responsiveness
+
+See [web-frontend.md](./references/web-frontend.md) → "Next.js SEO Best Practices" section.
+
+### 5. Use or Modify Shared Packages
 
 Shared packages live in `packages/*` and are consumed by apps:
 
@@ -94,7 +108,7 @@ Shared packages live in `packages/*` and are consumed by apps:
 
 See [shared-packages.md](./references/shared-packages.md) for full details.
 
-### 5. Manage Database
+### 6. Manage Database
 
 Database uses Prisma ORM with PostgreSQL:
 
@@ -111,7 +125,7 @@ yarn db:seed
 
 See [database.md](./references/database.md) for schema patterns and migration workflow.
 
-### 6. Add a New App or Package
+### 7. Add a New App or Package
 
 ```bash
 # Create app directory
@@ -125,7 +139,7 @@ mkdir -p apps/my-app/src
 
 See [scaffolding.md](./references/scaffolding.md) for full template and checklist.
 
-### 7. Restructure a Vibe-Coded Project
+### 8. Restructure a Vibe-Coded Project
 
 If you have an existing project built quickly without proper structure, follow this process to migrate it into the monorepo architecture:
 
@@ -146,7 +160,7 @@ mkdir -p apps/api/src apps/web/src packages/
 
 See [scaffolding.md](./references/scaffolding.md) for template files, and [docker-setup.md](./references/docker-setup.md) for Docker setup.
 
-### 8. Run Tests
+### 9. Run Tests
 
 Tests are co-located in `__tests__/` directories using Vitest, with E2E tests using Playwright.
 
